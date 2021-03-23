@@ -9,6 +9,13 @@
 # fix libpng 192.168.31.115 build error (link libz)
 # https://github.com/LuaDist/libpng
 
+#rm -rf android/build
+#tools\release\android\build.lts.gradle
+
+#sed -i 's/compileSdkVersion 29/compileSdkVersion 30/g' tools/release/android/build.lts.gradle
+#sed -i 's/compileSdkVersion 29/targetSdkVersion 26/g' tools/release/android/build.lts.gradle
+#sed -i 's/gradle-6.0.1-all.zip/gradle-6.5-bin.zip/g' android/gradle/wrapper/gradle-wrapper.properties
+
 unset PKG_CONFIG_PATH
 unset C_INCLUDE_PATH
 
