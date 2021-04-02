@@ -1,4 +1,4 @@
-Pod::Spec.new do |s|
+Pod::Spec.new do |s|  
     s.name              = "mobile-ffmpeg-zex-lite"
     s.version           = "1.0.0"
     s.summary           = "Mobile FFmpeg Lite GPL ass Static Framework"
@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.3'
     s.ios.frameworks    = 'AudioToolbox','CoreMedia','VideoToolbox'
-    s.ios.vendored_frameworks = 'mobileffmpeg.framework', 'libavcodec.framework', 'libavdevice.framework', 'libavfilter.framework', 'libavformat.framework', 'libavutil.framework', 'libswresample.framework', 'libswscale.framework', 'expat.framework', 'fontconfig.framework', 'freetype.framework', 'fribidi.framework', 'libass.framework', 'x264.framework'
+    s.ios.vendored_frameworks = 'ios-framework/mobileffmpeg.framework', 'ios-framework/libavcodec.framework', 'ios-framework/libavdevice.framework', 'ios-framework/libavfilter.framework', 'ios-framework/libavformat.framework', 'ios-framework/libavutil.framework', 'ios-framework/libswresample.framework', 'ios-framework/libswscale.framework', 'ios-framework/expat.framework', 'ios-framework/fontconfig.framework', 'ios-framework/freetype.framework', 'ios-framework/fribidi.framework', 'ios-framework/libass.framework', 'ios-framework/libpng', 'ios-framework/x264.framework'
 
-end
+end  
+
