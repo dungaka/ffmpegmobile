@@ -4878,6 +4878,15 @@ static int transcode(void)
 
         /* dump report by using the output first video and audio streams */
         print_report(0, timer_start, cur_time);
+
+        if (nb_output_files) {
+            OutputFile *of = output_files[0];
+            if (of->speed > 0) {
+		//av_log(NULL, AV_LOG_ERROR, "before usleep %d\n", of->speed);
+                av_usleep(of->speed * 500);
+		//av_log(NULL, AV_LOG_ERROR, "after usleep\n");
+	    }
+        }
     }
 #if HAVE_THREADS
     free_input_threads();
@@ -5495,6 +5504,9 @@ int ffmpeg_execute(int argc, char **argv)
             "initialise hardware device", "args" },
         { "filter_hw_device", HAS_ARG | OPT_EXPERT, { .func_arg = opt_filter_hw_device },
             "set hardware device used when filtering", "device" },
+
+        { "speed",           HAS_ARG | OPT_INT  | OPT_OFFSET | OPT_OUTPUT,{ .off = OFFSET(speed) },
+            "transcode speed limit" },
 
         { NULL, },
     };
