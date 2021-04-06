@@ -77,6 +77,7 @@ case ${ARCH} in
         TARGET_ARCH="i386"
         NEON_FLAG="	--disable-neon"
         BITCODE_FLAGS=""
+	FFMPEG_CFLAGS+=" -D__thread="
     ;;
     x86-64)
         ARCH_OPTIONS="--disable-asm"

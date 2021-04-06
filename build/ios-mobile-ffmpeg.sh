@@ -39,7 +39,11 @@ fi
 COMMON_CFLAGS=$(get_cflags ${LIB_NAME})
 COMMON_LDFLAGS=$(get_ldflags ${LIB_NAME})
 
-export CFLAGS="${COMMON_CFLAGS} -I${BASEDIR}/prebuilt/$(get_target_build_directory)/ffmpeg/include"
+if [ ${ARCH} == "i386" ];then
+    EXTRA_PARAM="-D__thread="
+fi
+
+export CFLAGS="${COMMON_CFLAGS} -I${BASEDIR}/prebuilt/$(get_target_build_directory)/ffmpeg/include ${EXTRA_PARAM}"
 export CXXFLAGS=$(get_cxxflags ${LIB_NAME})
 export LDFLAGS="${COMMON_LDFLAGS} -L${BASEDIR}/prebuilt/$(get_target_build_directory)/ffmpeg/lib -framework Foundation -framework CoreVideo -lavdevice"
 export PKG_CONFIG_LIBDIR="${INSTALL_PKG_CONFIG_DIR}"
