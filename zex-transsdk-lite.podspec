@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     s.homepage          = "https://github.com/wnpllrzodiac/mobile-ffmpeg"
 
     s.author            = { "Michael Ma" => "wnpllr@gmail.com" }
-    s.license           = { :type => "GPL-3.0", :file => "mobileffmpeg.framework/LICENSE" }
+    s.license           = { :type => "GPL-3.0", :file => "ios-framework/mobileffmpeg.framework/LICENSE" }
 
     s.platform          = :ios
     s.requires_arc      = true
