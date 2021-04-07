@@ -178,6 +178,8 @@ typedef struct OptionsContext {
     int shortest;
     int bitexact;
 
+    int speed; // trans rate limit to speed / 10
+
     int video_disable;
     int audio_disable;
     int subtitle_disable;
@@ -583,6 +585,7 @@ typedef struct OutputFile {
     uint64_t limit_filesize; /* filesize limit expressed in bytes */
 
     int shortest;
+    int speed;
 
     int header_written;
 } OutputFile;
