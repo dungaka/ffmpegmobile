@@ -207,7 +207,8 @@ download_library_source() {
 
   case $1 in
   cpu-features)
-    LIB_REPO_URL="https://github.com/tanersener/cpu_features"
+    #LIB_REPO_URL="https://github.com/tanersener/cpu_features"
+    LIB_REPO_URL="git@192.168.31.241:wnpllrzodiac/cpu_features.git"
     SOURCE_ID="v0.4.1.1"                                      # TAG
     SOURCE_TYPE="TAG"
     ;;
