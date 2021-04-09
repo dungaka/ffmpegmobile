@@ -518,7 +518,7 @@ public class Config {
      */
     public static String getVersion() {
         if (isLTSBuild()) {
-            return String.format("%s-lts", getNativeVersion());
+            return getNativeVersion(); //String.format("%s-lts", getNativeVersion());
         } else {
             return getNativeVersion();
         }
