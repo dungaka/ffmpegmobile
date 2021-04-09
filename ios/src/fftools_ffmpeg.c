@@ -5513,6 +5513,9 @@ int ffmpeg_execute(int argc, char **argv)
         { "filter_hw_device", HAS_ARG | OPT_EXPERT, { .func_arg = opt_filter_hw_device },
             "set hardware device used when filtering", "device" },
 
+        { "speed",           HAS_ARG | OPT_INT  | OPT_OFFSET | OPT_OUTPUT,{ .off = OFFSET(speed) },
+            "transcode speed limit, 25 means 2.5x" },
+
         { NULL, },
     };
 
