@@ -28,7 +28,7 @@
 
 /** Library version string */
 //#define MOBILE_FFMPEG_VERSION "4.4"
-#define MOBILE_FFMPEG_VERSION "1.0.4"
+#define MOBILE_FFMPEG_VERSION "1.0.5"
 
 /** Defines tag used for Android logging. */
 #define LIB_NAME "mobile-ffmpeg"
