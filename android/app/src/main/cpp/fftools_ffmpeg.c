@@ -1887,6 +1887,9 @@ static void print_report(int is_last_report, int64_t timer_start, int64_t cur_ti
             float fps;
 
             frame_number = ost->frame_number;
+            if (frame_number < 5)
+                return;
+
             fps = t > 1 ? frame_number / t : 0;
             av_bprintf(&buf, "frame=%5d fps=%3.*f q=%3.1f ",
                      frame_number, fps < 9.95, fps, q);
