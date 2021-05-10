@@ -214,7 +214,7 @@ download_library_source() {
     ;;
   ffmpeg)
     LIB_REPO_URL="git@192.168.31.241:wnpllrzodiac/ffmpeg.git"
-    SOURCE_ID="ab61d839940fa04d7e0bbe54f5f55e762aebab86"      # COMMIT -> v4.4-dev-416
+    SOURCE_ID="8511e6629630dd06da45dec6ecdee5e79f08d204"      # COMMIT -> v4.4-dev-416
     SOURCE_TYPE="COMMIT"
     ;;
   esac
