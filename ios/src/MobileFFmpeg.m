@@ -32,7 +32,7 @@ int ffmpeg_execute(int argc, char **argv);
 
 /** Global library version */
 //NSString *const MOBILE_FFMPEG_VERSION = @"4.4";
-NSString *const MOBILE_FFMPEG_VERSION = @"1.0.8";
+NSString *const MOBILE_FFMPEG_VERSION = @"1.0.9";
 
 extern int lastReturnCode;
 extern NSMutableString *lastCommandOutput;
