@@ -2155,12 +2155,16 @@ int open_output_file(OptionsContext *o, const char *filename)
         exit_program(1);
     output_files[nb_output_files - 1] = of;
 
+    of->speed          = o->speed;
     of->ost_index      = nb_output_streams;
     of->recording_time = o->recording_time;
     of->start_time     = o->start_time;
     of->limit_filesize = o->limit_filesize;
     of->shortest       = o->shortest;
     av_dict_copy(&of->opts, o->g->format_opts, 0);
+
+    if (of->speed > 0)
+        av_log(NULL, AV_LOG_WARNING, "set transcode_speed val: %d.\n", of->speed);
 
     if (!strcmp(filename, "-"))
         filename = "pipe:";

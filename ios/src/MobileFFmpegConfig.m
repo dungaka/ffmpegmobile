@@ -966,7 +966,7 @@ void callbackBlockFunction() {
  */
 + (NSString*)getVersion {
     if ([ArchDetect isLTSBuild] == 1) {
-        return [NSString stringWithFormat:@"%@-lts", MOBILE_FFMPEG_VERSION];
+        return MOBILE_FFMPEG_VERSION; //[NSString stringWithFormat:@"%@-lts", MOBILE_FFMPEG_VERSION];
     } else {
         return MOBILE_FFMPEG_VERSION;
     }

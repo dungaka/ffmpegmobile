@@ -207,13 +207,14 @@ download_library_source() {
 
   case $1 in
   cpu-features)
-    LIB_REPO_URL="https://github.com/tanersener/cpu_features"
+    #LIB_REPO_URL="https://github.com/tanersener/cpu_features"
+    LIB_REPO_URL="git@192.168.31.241:wnpllrzodiac/cpu_features.git"
     SOURCE_ID="v0.4.1.1"                                      # TAG
     SOURCE_TYPE="TAG"
     ;;
   ffmpeg)
-    LIB_REPO_URL="https://github.com/tanersener/FFmpeg"
-    SOURCE_ID="d222da435e63a2665b85c0305ad2cf8a07b1af6d"      # COMMIT -> v4.4-dev-416
+    LIB_REPO_URL="git@192.168.31.241:wnpllrzodiac/ffmpeg.git"
+    SOURCE_ID="da5797f4bbbdb9d256b245a797b6d9261652ff25"      # COMMIT -> v4.4-dev-416
     SOURCE_TYPE="COMMIT"
     ;;
   esac

@@ -1887,6 +1887,9 @@ static void print_report(int is_last_report, int64_t timer_start, int64_t cur_ti
             float fps;
 
             frame_number = ost->frame_number;
+            if (frame_number < 5)
+                return;
+
             fps = t > 1 ? frame_number / t : 0;
             av_bprintf(&buf, "frame=%5d fps=%3.*f q=%3.1f ",
                      frame_number, fps < 9.95, fps, q);
@@ -4878,6 +4881,23 @@ static int transcode(void)
 
         /* dump report by using the output first video and audio streams */
         print_report(0, timer_start, cur_time);
+
+        if (nb_output_files) {
+            OutputFile *of = output_files[0];
+	    if (of->speed > 0) {
+                while (1) {
+                    OutputStream *ost = output_streams[0];
+                    int64_t pts = av_rescale_q(ost->last_mux_dts, ost->mux_timebase, AV_TIME_BASE_Q);
+                    int64_t now = av_gettime_relative() - timer_start;
+                    if (pts > of->speed * now / 10) {
+                        av_usleep(1000);
+                        continue;
+                    }
+
+                    break;
+                }
+            }
+        }
     }
 #if HAVE_THREADS
     free_input_threads();
@@ -5495,6 +5515,9 @@ int ffmpeg_execute(int argc, char **argv)
             "initialise hardware device", "args" },
         { "filter_hw_device", HAS_ARG | OPT_EXPERT, { .func_arg = opt_filter_hw_device },
             "set hardware device used when filtering", "device" },
+
+        { "speed",           HAS_ARG | OPT_INT  | OPT_OFFSET | OPT_OUTPUT,{ .off = OFFSET(speed) },
+            "transcode speed limit" },
 
         { NULL, },
     };
